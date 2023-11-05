@@ -13,7 +13,7 @@ else:
             
         elif age < 18:
             print(f"price of one ticket for children is 15$")
-            childrenTickets=int(input("how many children tickets? "))
+            
         elif age>=60:
             print(f"price of one ticket for senior is 13")
             
@@ -30,5 +30,5 @@ else:
         #seniorTickets=int(input("how many senior tickets? "))
         #childrenTickets=int(input("how many children tickets? "))
         #totalPriceOfTickets=20*adultTickets+15*childrenTickets+13*seniorTickets
-    print(f"your total is {20*adultTickets+15*childrenTickets+13*seniorTickets}$")
+        print(f"your total is {20*adultTickets+15*childrenTickets+13*seniorTickets}$")
     
