@@ -1,0 +1,6 @@
+print("welcome to tip calculator")
+totalbill=int(input("what is your total bill? "))
+tipPercent=int(input("what percent tip you want to give 10, 12 or 15 ? "))
+splitbill=int(input("split bill amng how many people? "))
+shareEachPerson=round((totalbill*(1+tipPercent/100))/splitbill)
+print(f"share of each person is {shareEachPerson}")
