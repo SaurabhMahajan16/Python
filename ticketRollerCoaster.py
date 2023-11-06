@@ -21,7 +21,10 @@ else:
             print(f"your total is {photofare+childrenfare}$")
         elif age<18 and phototaken == "N":
             print(f"your total is {childrenfare}$")
-            
+        elif 45<=age<=55 and phototaken == "Y":
+            print(f"everything is going to be alright and have a free ride on us! and your total on photo is {photofare}") #mide life crisis
+        elif 45<=age<=55 and phototaken == "N":
+            print(f"everything is going to be alright and have a free ride on us!") #mide life crisis
         elif age>=60 and phototaken == "Y":
             print(f"your total is {photofare+seniorfare}$")
         elif age>=18 and phototaken == "N":
