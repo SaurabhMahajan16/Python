@@ -38,7 +38,7 @@ if passwordLength==lowercaseAlphabets+uppercaseAlphabets+numericCharacters+speci
 else:
     print(f"length of password didnt match with length of characters you enter, please retry!!!")
 
-passwordgenerator=string.ascii_lowercase+string.ascii_uppercase+"!@#$%^&*"+string.digits
+passwordgenerator=[string.ascii_lowercase]+[string.ascii_uppercase]+specialChar+[string.digits]
 generatedString=''.join(random.choices(passwordgenerator, k=passwordLength))
 
 #password="".join(random.choices(passwordgenerator, passwordLength))
