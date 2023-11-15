@@ -1,0 +1,1 @@
+word_list=['rail', 'fail', 'sail', 'tale', 'male', 'mist', 'computer', 'total', 'figure', 'female', 'zebra', 'pluto', 'toyland', 'barbie', 'stranger', 'danger', 'tiger', 'cow', 'dung']
