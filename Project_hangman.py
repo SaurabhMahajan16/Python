@@ -1,7 +1,9 @@
 import random
 from hangman_arts import stages, logo
 from hangman_word_list import word_list
+import os
 
+os.system('cls||clear')
 print(f'''
       \n\n\n {logo}
       \n\n\n\
@@ -15,7 +17,7 @@ blank_spaces=""
 for i in range(0, total_spaces):
     blank_spaces+="_"
 
-print(f"Number of spaces in the word are : \n\n\n\n {blank_spaces}\n\n")
+print(f"Number of letters in the word are : \n\n {blank_spaces}\n\n")
 print("please guess a letter \n\n")
 print(f"you have {total_spaces} guesses if you made {total_spaces} wrong guesses you will loose the game")
 
@@ -48,6 +50,7 @@ while end_of_game:
             blank_spaces[guessed_index]=letter_guessed
             modify_spaces=" ".join(blank_spaces)
             print(modify_spaces)
+            #os.system('cls||clear')
 
 
 
