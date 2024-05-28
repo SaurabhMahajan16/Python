@@ -1,4 +1,4 @@
-from auctionArt import gavelArt, auction
+from art import gavelArt, auction
 import os
 import json
 
