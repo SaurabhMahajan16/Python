@@ -52,16 +52,16 @@ def letsPlayGame():
             os.system('cls||clear')
             gameview(accountA, accountB)
             count+=1
-            print(f"your current score is {count}")
+            print(f"You're right! Current score: {count}")
         elif userAnswer.upper()=="B" and accountA["follower_count"]<accountB["follower_count"]:
             accountA, accountB=userWon(accountA, accountB)
             os.system('cls||clear')
             gameview(accountA, accountB)
             count+=1
-            print(f"your current score is {count}")
+            print(f"You're right! Current score: {count}")
         else:
-            
-            print(f"You Lost \nYou scored {count}\n{over}")
+            print(highLow)
+            print(f"Sorry, that's wrong. Final score: {count}\n{over}")
             
             exit()
 
