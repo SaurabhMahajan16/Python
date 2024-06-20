@@ -1,6 +1,7 @@
 from gameData import data
 from art import highLow, vs, over
 import random
+import os
 
 print(highLow)
 
@@ -15,12 +16,12 @@ def formatData(account):
 
 def gameview(accountI, accountJ):
     testA=formatData(accountI)
-    print(testA)
-    print("\n")
+    print(f"Compare A: {testA}")
+    #print("\n")
     print(vs)
-    print("\n")
+    #print("\n")
     testB=formatData(accountJ)
-    print(testB)
+    print(f"Against B: {testB}")
     print("\n")
 
 def userWon(person1, person2):
@@ -48,16 +49,19 @@ def letsPlayGame():
         userAnswer=input("who has more followers? Type 'A' or 'B' ")
         if userAnswer.upper()=="A" and accountA["follower_count"]>accountB["follower_count"]:
             accountA, accountB=userWon(accountA, accountB)
+            os.system('cls||clear')
             gameview(accountA, accountB)
             count+=1
             print(f"your current score is {count}")
         elif userAnswer.upper()=="B" and accountA["follower_count"]<accountB["follower_count"]:
-            accountA, accountB=userWon(accountB, accountA)
+            accountA, accountB=userWon(accountA, accountB)
+            os.system('cls||clear')
             gameview(accountA, accountB)
             count+=1
             print(f"your current score is {count}")
         else:
-            print(f"You Lost \n {over}")
+            
+            print(f"You Lost \nYou scored {count}\n{over}")
             
             exit()
 
