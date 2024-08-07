@@ -42,7 +42,7 @@ def askForMoney(coffee):
     dimes=int(input("number o cents"))
     nickels=int(input("number o nickels"))
     quarters=int(input("number of quarters"))
-    totalmoney=pennies+dimes*10+nickels*5+quarters*25
+    totalmoney=[pennies+dimes*10+nickels*5+quarters*25]
     if totalmoney==MENU[coffee]["cost"]: 
         return True
     elif totalmoney>MENU[coffee]["cost"]:
