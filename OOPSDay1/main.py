@@ -42,7 +42,7 @@ def drawRandomLines():
     for _ in range (200):
         sonali.forward(10)
         sonali.setheading(random.choice(directions))
-        sonali.pencolor(random.choice(colours))
+        sonali.pencolor(randomColors())
   
 def drawSpirograph(gapsize, object):
     for i in range (0,360,gapsize):
