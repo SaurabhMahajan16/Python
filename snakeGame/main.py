@@ -47,7 +47,7 @@ while game_on:
         score.gameover()
         snakeMusic.gameOver()
     
-    for segment in snake.segments[2:]:
+    for segment in snake.segments[1:]:
         if snake.head.distance(segment)<15:
             score.gameover()
             game_on=False
