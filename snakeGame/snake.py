@@ -40,6 +40,12 @@ class Snake:
 
         #if self.segments[len(self.segments)-1].xcor()>280:
         #    self.segments[0].goto(x=-300, y=0)
+    def resetSnake(self):
+        for segment in self.segments:
+            segment.goto(1000,1000)
+        self.segments.clear()
+        self.createSnake()
+        self.head=self.segments[0]
     
     
     def up(self):

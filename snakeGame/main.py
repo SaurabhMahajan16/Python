@@ -31,26 +31,29 @@ while game_on:
     
     screen.update() 
     
-    time.sleep(0.2)
+    time.sleep(score.speed)
     snake.move()
     
     if snake.head.distance(food)<15:
         food.refresh()
         score.refresh()
-        #snakeMusic.gotFood()
+        
         snake.extendSnake()
     
         
     if snake.head.xcor()>295 or snake.head.xcor()<-295 or snake.head.ycor()>295 or snake.head.ycor()<-295:
-        game_on=False
+        #game_on=False
         #food.hideturtle()
-        score.gameover()
-        snakeMusic.gameOver()
+        #score.reset()
+        score.reset()
+        snake.resetSnake()
+        #score.gameover()
+        #snakeMusic.gameOver()
     
     for segment in snake.segments[1:]:
         if snake.head.distance(segment)<15:
-            score.gameover()
-            game_on=False
+            score.reset()
+            #game_on=False
             snakeMusic.gameOver()
     
             
