@@ -1,5 +1,6 @@
 import random
 import string
+import json
 
 #passwordgenerator=[string.ascii_lowercase]+[strin\\g.ascii_uppercase]+specialChar+[string.digits]
 #generatedString=''.join(random.choices(passwordgenerator, k=passwordLength))
@@ -26,8 +27,30 @@ labelWebsite.grid(row=1, column=0)
 #labelWebsite.config(padx=5,pady=5)
 inputWebsite=Entry()
 inputWebsite.config(width=35)
-inputWebsite.grid(row=1, column=1, columnspan=2)
+inputWebsite.grid(row=1, column=1,columnspan=2)
 inputWebsite.focus()
+
+def searchPassword():
+    website=inputWebsite.get()
+    try:
+        with open("passwordManager.json", "r") as editor:
+            data=json.load(editor)
+            
+    except FileNotFoundError:        
+        messagebox.showerror("error", f"there is no file exists")
+    else:
+        if website in data:
+            specificWebsitePassword=data[website]
+            email=specificWebsitePassword['email']
+            password=specificWebsitePassword['password']
+            details=f"website: {website}\nemail: {email}\n password: {password}"
+
+            messagebox.showinfo(title=f"Password details for {website}", message=details)    
+        else:
+            messagebox.showerror("error", f"there is no {website} entry in file")
+searchButton=Button(text="Search", command=searchPassword)
+searchButton.grid(row=1, column=2)
+#
 
 emailLabel=Label(text="Email/Username:")
 emailLabel.grid(row=2, column=0)
@@ -68,6 +91,7 @@ def generate_password():
         inputPassword.insert(0, string=generatedPassword)
 
 generatePassButton=Button(text="Generate Password", command=generate_password)
+#generatePassButton.config(width=17)
 generatePassButton.grid(row=3, column=2)
 
 def add_button():
@@ -78,14 +102,30 @@ def add_button():
     password=inputPassword.get()
     #print(password)
     details=f"{website} | {email} | {password} \n"
+    passwordEntries={
+        website:
+        {
+         "email":email,
+         "password":password   
+        }
+    }
     #passwordDetails.append(details)
     if len(website)!=0 and len(email)!=0 and len(password)!=0:
         okToSave=messagebox.askokcancel(title=website, message=f"These are the details entered \n Email:{email}\nWebsite:{website}\nPassword:{password} \n Is it ok to save")
         if okToSave:
-            with open("passwordManager.txt", "a") as editor:
-                editor.write(details)
-            inputPassword.delete(0,END)
-            inputWebsite.delete(0,END)   
+            try:
+                with open("passwordManager.json", "r") as editor:
+                    data=json.load(editor)
+                    data.update(passwordEntries)
+            except FileNotFoundError:        
+                with open("passwordManager.json", "w") as editor:
+                    json.dump(passwordEntries,editor,indent=4 )
+            else:
+                with open("passwordManager.json", "w") as editor:
+                    json.dump(data,editor,indent=4 )
+            finally:    
+                inputPassword.delete(0,END)
+                inputWebsite.delete(0,END)   
         #pass
     else:
         messagebox.showerror("error", "Please enter data in all fields")
